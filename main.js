@@ -7,25 +7,29 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const dd = require('/lib/dingzdevice.js');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
-class Template extends utils.Adapter {
+class Dingz2 extends utils.Adapter {
 
     /**
      * @param {Partial<utils.AdapterOptions>} [options={}]
      */
-    constructor(options) {
+    constructor(options={}) {
         super({
             ...options,
-            name: 'template',
+            name: 'dingz2',
         });
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
+		
+		// own classes
+		this.listener = new dd.Dingzlistener(this);
     }
 
     /**
@@ -36,14 +40,21 @@ class Template extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('config option1: ' + this.config.option1);
-        this.log.info('config option2: ' + this.config.option2);
+        this.log.info('config devices: ' + this.config.devices);
+        this.log.info('config api: ' + this.config.api);
+		this.log.info('start listener');
+		this.listener.start();
+		this.listener.listen();
+		this.listener.update();
+
 
         /*
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
         */
+		
+
         await this.setObjectNotExistsAsync('testVariable', {
             type: 'state',
             common: {
@@ -96,6 +107,7 @@ class Template extends utils.Adapter {
             // clearTimeout(timeout2);
             // ...
             // clearInterval(interval1);
+			this.listener.stop();
 
             callback();
         } catch (e) {
@@ -161,8 +173,8 @@ if (module.parent) {
     /**
      * @param {Partial<utils.AdapterOptions>} [options={}]
      */
-    module.exports = (options) => new Template(options);
+    module.exports = (options) => new Dingz2(options);
 } else {
     // otherwise start the instance directly
-    new Template();
+    new Dingz2();
 }

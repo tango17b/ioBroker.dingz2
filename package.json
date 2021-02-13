@@ -1,22 +1,22 @@
 {
-  "name": "iobroker.template",
-  "version": "0.0.1",
-  "description": "Template for adapter development",
+  "name": "iobroker.dingz2",
+  "version": "0.1.0",
+  "description": "Dingz Adapter",
   "author": {
-    "name": "Author",
-    "email": "author@mail.com"
+    "name": "tango17b",
+    "email": "iobroker@schaad.org"
   },
-  "homepage": "https://github.com/Author/ioBroker.template",
+  "homepage": "https://github.com/tango17b/ioBroker.dingz2",
   "license": "MIT",
   "keywords": [
     "ioBroker",
-    "template",
     "Smart Home",
-    "home automation"
+    "home automation",
+	"Dingz"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Author/ioBroker.template"
+    "url": "https://github.com/tango17b/ioBroker.dingz2"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0"
@@ -53,7 +53,7 @@
     "lint": "eslint"
   },
   "bugs": {
-    "url": "https://github.com/Author/ioBroker.template/issues"
+    "url": "https://github.com/tango17b/ioBroker.dingz2/issues"
   },
   "readmeFilename": "README.md"
 }
