@@ -17,7 +17,8 @@
             "de": "Dingz Adapter rewrite dev"
         },
         "authors": [
-            "tango17b <iobroker@schaad.org>"
+            "name": "tango17b",
+			"email": "iobroker@schaad.org"
         ],
         "keywords": [
             "ioBroker",
