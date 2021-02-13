@@ -54,8 +54,7 @@
 		"api": "/api/v1/",
 		"devices": [ 
 			{
-			"mac-adress": "",
-			"managed": true
+			"mac-adress": ""
 			}
 		]
 	},
