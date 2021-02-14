@@ -54,13 +54,13 @@
 		"api": "/api/v1/",
 		"devices": [ 
 			{
-			"mac-adress": ""
+				"mac-adress": ""
 			}
 		]
 	},
     "objects": [],
     "instanceObjects": [
-	    {
+	{
       "_id": "info",
       "type": "channel",
       "common": {
