@@ -51,12 +51,7 @@
     "native": {
 		"interval": 300,
 		"udp-port": 7979,		
-		"api": "/api/v1/",
-		"devices": [ 
-			{
-				"mac-adress": ""
-			}
-		]
+		"api": "/api/v1/"
 	},
     "objects": [],
     "instanceObjects": [
